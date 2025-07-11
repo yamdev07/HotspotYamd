@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Connexion Wi-Fi - ANYXTECH</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet"/>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(to bottom right, #e3f2fd, #ffffff);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .login-container {
+      background-color: #ffffffee;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      width: 90%;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    .logo {
+      width: 100px;
+      margin-bottom: 1rem;
+    }
+
+    .wifi-icon {
+      font-size: 2.5rem;
+      color: #0077c2;
+      margin-bottom: 0.5rem;
+    }
+
+    .title {
+      font-size: 1.8rem;
+      color: #003366;
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+      color: #333;
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+    }
+
+    .input-group {
+      display: flex;
+      align-items: center;
+      background: #f0f0f0;
+      border-radius: 8px;
+      padding: 0.6rem 0.8rem;
+      margin-bottom: 1rem;
+      position: relative;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .input-group i {
+      position: absolute;
+      top: 50%;
+      left: 12px;
+      transform: translateY(-50%);
+      color: #0077c2;
+      font-size: 1.2rem;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 0.6rem 0.8rem 0.6rem 2.5rem;
+      border: none;
+      background: transparent;
+      outline: none;
+      font-size: 1rem;
+      box-sizing: border-box;
+    }
+
+    .btn-primary {
+      background: linear-gradient(to right, #00b4db, #0077c2);
+      border: none;
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border-radius: 8px;
+      cursor: pointer;
+      width: 100%;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+
+    .btn-primary:hover {
+      background: #005fa3;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: #0077c2;
+      border: 2px solid #0077c2;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      cursor: pointer;
+      width: 100%;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+
+    .btn-secondary:hover {
+      background: #0077c2;
+      color: white;
+    }
+
+    .conditions a {
+      color: #003366;
+      text-decoration: none;
+      font-size: 0.85rem;
+    }
+
+    .info {
+      font-size: 0.9rem;
+      color: #fa2d2d;
+      margin-bottom: 1rem;
+    }
+
+    @media screen and (max-width: 480px) {
+      .logo {
+        width: 80px;
+      }
+
+      .title {
+        font-size: 1.5rem;
+      }
+
+      .input-group input {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <img src="logo.png" alt="Logo ANYXTECH" class="logo" />
+
+    <div class="wifi-icon">
+      <i class="fas fa-wifi"></i>
+    </div>
+
+    <h1 class="title">Hotspot Wi-Fi</h1>
+    <p class="subtitle">Restez connecté avec <strong>ANYXTECH</strong> !</p>
+
+    <!-- CHAP hidden form -->
+    $(if chap-id)
+    <form name="sendin" action="$(link-login-only)" method="post" style="display:none;">
+      <input type="hidden" name="username" />
+      <input type="hidden" name="password" />
+      <input type="hidden" name="dst" value="$(link-orig)" />
+      <input type="hidden" name="popup" value="true" />
+    </form>
+
+    <script src="/md5.js"></script>
+    <script>
+      function doLogin() {
+        document.sendin.username.value = document.login.username.value;
+        document.sendin.password.value = hexMD5('$(chap-id)' + document.login.password.value + '$(chap-challenge)');
+        document.sendin.submit();
+        return false;
+      }
+    </script>
+    $(endif)
+
+    <!-- Formulaire principal -->
+    <form name="login" action="$(link-login-only)" method="post" $(if chap-id) onSubmit="return doLogin()" $(endif)>
+      <input type="hidden" name="dst" value="$(link-orig)" />
+      <input type="hidden" name="popup" value="true" />
+
+      <p class="info $(if error)alert$(endif)">
+        $(if error == "")Veuillez vous connecter pour accéder à Internet. $(endif)
+        $(if error)$(error)$(endif)
+      </p>
+
+      <div class="input-group">
+        <i class="fas fa-user"></i>
+        <input type="text" name="username" placeholder="Nom d'utilisateur" value="$(username)" required />
+      </div>
+
+      <div class="input-group">
+        <i class="fas fa-lock"></i>
+        <input type="password" name="password" placeholder="Mot de passe" required />
+      </div>
+
+      <button type="submit" class="btn-primary">Se connecter</button>
+    </form>
+
+    <button class="btn-secondary" onclick="window.location.href='tickets.html'">Voir les tickets</button>
+    <p class="conditions"><a href="#">Conditions d'utilisation</a></p>
+  </div>
+</body>
+</html>

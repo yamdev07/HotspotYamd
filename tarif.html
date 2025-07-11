@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WIFI ZONE M229</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      font-family: Arial, sans-serif;
+      background-color: #f1f1f1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .wifi-card {
+      background-color: #fff;
+      border-radius: 15px;
+      width: 90%;
+      max-width: 500px;
+      padding: 5vw;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .wifi-card .title {
+      color: #444341;
+      font-size: 6vw;
+      font-weight: bold;
+      margin-bottom: 4vw;
+    }
+
+    .pricing-title {
+      font-weight: bold;
+      margin-bottom: 4vw;
+      text-decoration: underline;
+      font-size: 4vw;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 5vw;
+    }
+
+    table td {
+      padding: 3vw;
+      border-bottom: 1px solid #ddd;
+      font-weight: bold;
+      font-size: 4vw;
+      color: #333;
+    }
+
+    table td:first-child {
+      text-align: left;
+    }
+
+    table td:last-child {
+      text-align: right;
+    }
+
+    .connection-info {
+      font-weight: bold;
+      margin-bottom: 5vw;
+      font-size: 4vw;
+    }
+
+    .connect-btn {
+      padding: 3vw;
+      background-color: #4b4744;
+      color: white;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: bold;
+      font-size: 4vw;
+      display: block;
+      width: 100%;
+      max-width: 300px;
+      margin: 0 auto;
+    }
+
+    .connect-btn:hover {
+      background-color: #3f3d3c;
+    }
+
+    @media (min-width: 600px) {
+      .wifi-card .title { font-size: 26px; }
+      .pricing-title, .connection-info { font-size: 18px; }
+      table td { font-size: 16px; padding: 12px; }
+      .connect-btn { font-size: 16px; padding: 14px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wifi-card">
+    <div class="title">PlayZone wifi</div>
+
+    <div class="pricing-title">Tarifs super accessibles :</div>
+
+    <table>
+      <tr><td>1 H </td><td>100 FCFA</td></tr>
+      <tr><td>3 H </td><td>200 FCFA</td></tr>
+      <tr><td>1 Jour </td><td>500 FCFA</td></tr>
+      <tr><td>3 Jours </td><td>1000 FCFA</td></tr>
+      <tr><td>1 sem </td><td>2000 FCFA</td></tr>
+      <tr><td>1 Mois</td><td>4800 FCFA</td></tr>
+    </table>
+
+    <div class="connection-info">Connexion rapide, stable et sécurisée.</div>
+
+    <a href="login.html" class="connect-btn">Retour</a>
+  </div>
+</body>
+</html>

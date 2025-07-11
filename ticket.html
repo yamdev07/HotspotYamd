@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Votre Accès Wi-Fi</title>
+</head>
+<body style="text-align:center; padding-top: 50px;">
+  <h1>Voici votre accès Wi-Fi</h1>
+  <p>Nom d'utilisateur : <strong id="u"></strong></p>
+  <p>Mot de passe : <strong id="p"></strong></p>
+
+  <p>Utilisez ces identifiants pour vous connecter à l'accueil hotspot.</p>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    document.getElementById("u").textContent = params.get("user");
+    document.getElementById("p").textContent = params.get("pass");
+  </script>
+</body>
+</html>
