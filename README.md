@@ -61,7 +61,8 @@ Assure-toi que le MikroTik autorise l’accès à l’API.
 
 📸 Aperçu
 
-![Aperçu du portail](image.png)
+<img width="2444" height="1904" alt="Capture d'écran 2025-07-11 105617" src="https://github.com/user-attachments/assets/f1c1d4b0-1d56-44e1-804b-ae48b2384eb6" />
+
 
 🔐 Sécurité
 Pense à désactiver l'accès à routeros_api.class.php depuis l’extérieur.
